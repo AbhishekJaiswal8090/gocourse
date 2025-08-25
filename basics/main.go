@@ -170,6 +170,11 @@ func calculateArea(s Shape) float32 {
 func calculatePerimeter(s Shape)float32{
 	return s.Perimeter()
 }
+//pointers 
+
+func increament(x *int){
+    *x =1
+}
 func main(){
 	//firstPart()
    // secondPart()
@@ -190,5 +195,9 @@ func main(){
   ans2 :=calculateArea(cir1)
   ans3 :=calculatePerimeter(rect1)
   fmt.Println(ans1,ans2,ans3)
+  
 
+  x :=0
+  increament(&x)
+  fmt.Println(x)
 }
