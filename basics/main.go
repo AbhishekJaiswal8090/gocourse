@@ -158,8 +158,18 @@ func(r Rectangle) Perimeter()float32{
 type Circle struct{
 	radius float32
 }
-
-
+func(c Circle) Area()float32{
+	return c.radius*c.radius*math.Pi
+}
+func(c Circle) Perimeter()float32{
+	return 2*math.Pi*c.radius
+}
+func calculateArea(s Shape) float32 {
+	return s.Area()
+}
+func calculatePerimeter(s Shape)float32{
+	return s.Perimeter()
+}
 func main(){
 	//firstPart()
    // secondPart()
@@ -167,7 +177,18 @@ func main(){
   // arr := [5]int{50,5,9,10,45}
   // arrayPart(arr)
   // slicePart()
-  mapPart()
-  countWordFrequency("Abhishek")
+//  mapPart()
+//  countWordFrequency("Abhishek")
+  rect1 :=Rectangle{
+	40.5,
+	50,
+  }
+  cir1 :=Circle{
+	40,
+  }
+  ans1 :=  calculateArea(rect1)
+  ans2 :=calculateArea(cir1)
+  ans3 :=calculatePerimeter(rect1)
+  fmt.Println(ans1,ans2,ans3)
 
 }
