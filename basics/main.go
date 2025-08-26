@@ -188,6 +188,14 @@ func Add(a,b float32)float32{
 func Subtarct(a,b float32)float32{
 	return a -b 
 }
+
+//craeting a function which return a function
+func ReturnFunc(multiplier float32)func (float32)float32{
+	return func (x float32)float32{
+		return multiplier * x
+	}
+
+}
 func main(){
 	//firstPart()
    // secondPart()
@@ -197,23 +205,27 @@ func main(){
   // slicePart()
 //  mapPart()
 //  countWordFrequency("Abhishek")
-  rect1 :=Rectangle{
+/*  rect1 :=Rectangle{
 	40.5,
 	50,
   }
   cir1 :=Circle{
 	40,
-  }
-  ans1 :=  calculateArea(rect1)
-  ans2 :=calculateArea(cir1)
-  ans3 :=calculatePerimeter(rect1)
-  fmt.Println(ans1,ans2,ans3)
+ }*/ 
+//  ans1 :=  calculateArea(rect1)
+//  ans2 :=calculateArea(cir1)
+//  ans3 :=calculatePerimeter(rect1)
+//  fmt.Println(ans1,ans2,ans3)
   
 
-  x :=0
-  increament(&x)
-  fmt.Println(x)
+//  x :=0
+//  increament(&x)
+//  fmt.Println(x)
 
-  addOperation :=ApplyOperation(50.78 ,56.8 ,Add)
-  fmt.Println(addOperation)
+//  addOperation :=ApplyOperation(50.78 ,56.8 ,Add)
+//  fmt.Println(addOperation)
+
+  returnFunc :=ReturnFunc(50.56)
+  fmt.Println(returnFunc(5))
+
 }
