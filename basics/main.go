@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math"
 )
@@ -196,6 +197,16 @@ func ReturnFunc(multiplier float32)func (float32)float32{
 	}
 
 }
+
+func Compare(x ,y int)(string ,error){
+	if x > y{
+		return "x is greater than y",nil
+	}else if x < y{
+		return "y is graeter than x",nil
+	}else{
+		return "",errors.New("something went wrong ")
+	}
+}
 func main(){
 	//firstPart()
    // secondPart()
@@ -225,7 +236,14 @@ func main(){
 //  addOperation :=ApplyOperation(50.78 ,56.8 ,Add)
 //  fmt.Println(addOperation)
 
-  returnFunc :=ReturnFunc(50.56)
-  fmt.Println(returnFunc(5))
+//  returnFunc :=ReturnFunc(50.56)
+  //fmt.Println(returnFunc(5))
+
+  res , err :=Compare(45 ,45)
+  if err != nil{
+	fmt.Println("Error",err)
+  }else{
+	fmt.Println(res)
+  }
 
 }
