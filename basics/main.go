@@ -175,6 +175,19 @@ func calculatePerimeter(s Shape)float32{
 func increament(x *int){
     *x =1
 }
+
+//creating a function which takes a function as a argument
+
+
+func ApplyOperation(x, y float32, operation func(float32, float32) float32) float32 {
+	return operation(x, y)
+}
+func Add(a,b float32)float32{
+	return a+b
+}
+func Subtarct(a,b float32)float32{
+	return a -b 
+}
 func main(){
 	//firstPart()
    // secondPart()
@@ -200,4 +213,7 @@ func main(){
   x :=0
   increament(&x)
   fmt.Println(x)
+
+  addOperation :=ApplyOperation(50.78 ,56.8 ,Add)
+  fmt.Println(addOperation)
 }
