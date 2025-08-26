@@ -197,7 +197,7 @@ func ReturnFunc(multiplier float32)func (float32)float32{
 	}
 
 }
-
+//multiple return values 
 func Compare(x ,y int)(string ,error){
 	if x > y{
 		return "x is greater than y",nil
@@ -206,6 +206,23 @@ func Compare(x ,y int)(string ,error){
 	}else{
 		return "",errors.New("something went wrong ")
 	}
+}
+//defer keyword 
+func DeferFunc(){
+	defer fmt.Println("Last to be executed")
+	defer fmt.Println("Second to be executed ")
+	fmt.Println("First to be executed")
+	
+
+	//defer keyword is actually kind of avoid function which 
+	//avoid the function to excuted mentioned to it
+	//while executing the nearest function whithout any defer keyword
+}
+func deferFunc(){
+      x := 1 //here for the defer func the value of x is evaluated that is 1 not 0
+	  defer fmt.Println("value is :",x)
+      x = 0
+	  fmt.Println(x)
 }
 func main(){
 	//firstPart()
@@ -239,11 +256,15 @@ func main(){
 //  returnFunc :=ReturnFunc(50.56)
   //fmt.Println(returnFunc(5))
 
-  res , err :=Compare(45 ,45)
+  /*res , err :=Compare(45 ,45)
   if err != nil{
 	fmt.Println("Error",err)
   }else{
 	fmt.Println(res)
   }
+	*/
+	deferFunc()
+	DeferFunc()
+
 
 }
