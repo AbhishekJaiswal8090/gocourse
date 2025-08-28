@@ -81,6 +81,14 @@ func main() {
 
 	 //struct method call
     person.structMethod()
+
+	//method 
+	r:= Rectangle{
+		length: 4.4,
+		width :60,
+	}
+	r.Scale(10)
+	fmt.Println(r.Area())
 	}
 
 //a function that demonstartes tha closures
@@ -141,4 +149,21 @@ func (p Person) structMethod(){
 
 func (p Person) changeAge(){
 	p.age++
+}
+
+//methods in detail
+type Rectangle struct{
+	length float32
+	width float32
+}
+
+//method with value receiver 
+func (r Rectangle ) Area()float32{
+	return r.length *r.width
+}
+
+//method with pointer receiver
+func(r *Rectangle) Scale(factor float32){
+     r.length *= factor
+	 r.width *=factor
 }
