@@ -27,8 +27,25 @@ func main() {
 	//  fmt.Println(subTractor(5))
 
 	//recursion
-	fmt.Println(factorial(5))
-	fmt.Println(sumOfDigit(10))
+	//fmt.Println(factorial(5))
+	//fmt.Println(sumOfDigit(10))
+
+	//pointers in go
+  /*  var ptr *int
+	a := 10
+	ptr =&a
+	fmt.Println(a,ptr)
+
+	//modifying values of a 
+	*ptr =20 //this is called derefrencing 
+	fmt.Println(a)*/
+
+	message :="hELLO GO"
+	randMessage :="hrllo \ngo"
+    
+	fmt.Println(message)
+	fmt.Println(randMessage)
+
 }
 
 //a function that demonstartes tha closures
