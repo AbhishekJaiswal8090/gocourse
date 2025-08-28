@@ -89,6 +89,10 @@ func main() {
 	}
 	r.Scale(10)
 	fmt.Println(r.Area())
+
+	m := Myint(-5)
+	fmt.Println(m.Ispositive())
+
 	}
 
 //a function that demonstartes tha closures
@@ -167,3 +171,7 @@ func(r *Rectangle) Scale(factor float32){
      r.length *= factor
 	 r.width *=factor
 }
+    type Myint int
+	func (m Myint) Ispositive() bool{
+       return m > 0
+	}
