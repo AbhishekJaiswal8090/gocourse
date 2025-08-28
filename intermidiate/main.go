@@ -40,13 +40,48 @@ func main() {
 	*ptr =20 //this is called derefrencing 
 	fmt.Println(a)*/
 
-	message :="hELLO GO"
+	/*message :="hELLO GO"
 	randMessage :="hrllo \ngo"
     
 	fmt.Println(message)
 	fmt.Println(randMessage)
+*/
 
-}
+//struct ing go
+
+//there are two different way of declaring struct variables
+    person :=Person{
+		firstname: "Abhi",
+		lastname: "Jaiswal",
+		age:32,
+		gender: "male",
+		address: Address{
+			city: "hetimpur",
+			district: "deoria",
+		},
+		homecontact: HomePhone{
+			home: "465738",
+			cell: "563903",
+		},
+	}
+
+	//fmt.Println(person)
+	//craeting instance of struct
+	var person1 Person
+     person1.firstname="akash"
+	 person1.lastname="jaiswal"
+	 person1.age=32
+	 person1.gender="male"
+	 person1.address.city="kushinagr"
+	 person1.address.district="rampur"
+	 person1.homecontact.cell="23451"
+	 person1.homecontact.home="56730"
+
+	 //fmt.Println(person1)
+
+	 //struct method call
+    person.structMethod()
+	}
 
 //a function that demonstartes tha closures
 func adder() func() int {
@@ -78,4 +113,32 @@ func sumOfDigit(x int)int{
 	}
 
 	return sum + sumOfDigit(x -1)
+}
+
+//struct in go 
+type Person struct{
+		firstname string 
+		lastname string 
+		age int16
+		gender string
+		address Address
+		homecontact HomePhone
+	}
+type Address struct{
+	city string 
+	district string
+}
+
+type HomePhone struct{
+	home string
+	cell string
+}
+	//defining strutc method 
+func (p Person) structMethod(){
+	fmt.Println(p.firstname)
+	fmt.Println(p.age)
+}
+
+func (p Person) changeAge(){
+	p.age++
 }
