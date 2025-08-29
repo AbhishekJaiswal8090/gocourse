@@ -88,10 +88,15 @@ func main() {
 		width :60,
 	}
 	r.Scale(10)
-	fmt.Println(r.Area())
+	//fmt.Println(r.Area())
 
-	m := Myint(-5)
-	fmt.Println(m.Ispositive())
+	//m := Myint(-5)
+	//fmt.Println(m.Ispositive())
+
+	//using our interface concepts here
+	c :=Cat{}
+	ans := makeSound(c)
+	fmt.Println(ans)
 
 	}
 
@@ -175,3 +180,28 @@ func(r *Rectangle) Scale(factor float32){
 	func (m Myint) Ispositive() bool{
        return m > 0
 	}
+//implementing interface in go
+//interfaces in java is a concept which is widely used for method receviver for diffrent types 
+type AnimalSound interface{
+	Sound() string
+}	
+
+type Cat struct{}
+
+func(c Cat) Sound()string{
+	return "meow - meow"
+}
+
+type Dog struct{}
+
+func(d Dog )Sound()string{
+	return "bhau-bhau"
+}
+
+type Crow struct{}
+func(c Crow) Sound()string{
+	return "kaww-kaww"
+}
+func makeSound(a AnimalSound) string {
+	return a.Sound()
+}
