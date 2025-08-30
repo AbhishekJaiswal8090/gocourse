@@ -130,7 +130,9 @@ func main() {
 
 	sqrPeri := measurePerimeter(sqr)
 	fmt.Println(sqrPeri)
-
+    
+	myPrinter(1,"abhi",56.90)
+	value("abhi")
 }
 
 // a function that demonstartes tha closures
@@ -293,3 +295,22 @@ func measureArea(s ShapeMeasure) float32 {
 func measurePerimeter(s ShapeMeasure) float32 {
 	return s.Perimeter()
 }
+func myPrinter(i ...interface{}){
+	for _,val:= range i{
+		fmt.Println(val)
+	}
+}
+
+func value(i interface{}){
+     fmt.Println(i)
+	 switch i:=i.(type) {
+	 case int:
+		fmt.Println("the value is int")
+	case string:
+		fmt.Println("type is string")
+	default:
+		fmt.Println("unknown",i)	
+	 }
+
+}
+
