@@ -16,16 +16,15 @@ func main(){
 */
 	//implementing stack
 	s := Stack[int]{
-		elements: []int{45,78,500,34},
+		elements: []int{},
 	}
 
-	val :=s.push(45)
-	fmt.Println(val)
+	s.push(45)
+    s.push(50)
 	s.printElement()
-	ele ,_:=s.pop()
-	fmt.Println(ele)
+	s.pop()
+	s.pop()
 	s.printElement()
-
 
 }
 
@@ -45,29 +44,36 @@ func swap[T any](a,b T)(T,T){
 }
 
 //implementing stack in go
-
 type Stack[T any] struct{
 	elements []T
 }
 
-func (s *Stack[T]) push(element T) string {
-	 s.elements = append(s.elements, element)
-	 return "element is push into the stack"
+func(s *Stack[T]) push(element T)bool{
+	s.elements=append(s.elements,element)
+	fmt.Println("elements is pushed")
+    return true
 }
 
-func (s *Stack[T]) pop() (T ,bool) {
-	if len(s.elements) == 0{
+func (s *Stack [T]) pop()(T, bool){
+	if len(s.elements)==0{
 		var zero T
-		return zero ,false
+		fmt.Println("underflow condition")
+		return zero,false
 	}
 	element := s.elements[len(s.elements)-1]
-	s.elements = s.elements[:len(s.elements)-1]
-	return element,true
+	s.elements=s.elements[:len(s.elements)-1]
+	fmt.Println("element is popped")
+    return element,true
 }
 
-func (s *Stack[T]) isEmpty()bool{
-	return len(s.elements)==0
-}
 func (s *Stack[T]) printElement(){
 	fmt.Println(s.elements)
+}
+
+func(s *Stack[T]) isOkay()string{
+    if len(s.elements)==0{
+		return "none elements are pushed "
+	}
+	fmt.Println(s.elements)
+	return "there are all element"
 }
