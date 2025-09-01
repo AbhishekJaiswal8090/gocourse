@@ -1,6 +1,10 @@
-package main 
+package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+	"math"
+)
 
 
 
@@ -13,7 +17,7 @@ func main(){
 	
 	b,a := swap("abhi","akash")
 	fmt.Println(b,a)
-*/
+
 	//implementing stack
 	s := Stack[int]{
 		elements: []int{},
@@ -25,6 +29,17 @@ func main(){
 	s.pop()
 	s.pop()
 	s.printElement()
+*/
+
+
+//error in go
+
+res ,err :=sqrt(-56)
+if err != nil{
+	fmt.Println(err)
+	return
+}
+fmt.Println(res)
 
 }
 
@@ -76,4 +91,13 @@ func(s *Stack[T]) isOkay()string{
 	}
 	fmt.Println(s.elements)
 	return "there are all element"
+}
+
+
+//implementing error
+func sqrt(x float64)(float64,error){
+	if x<0{
+		return 0,errors.New("math : square root of negative number")
+	}
+	return math.Sqrt(x) ,nil
 }
