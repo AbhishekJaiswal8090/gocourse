@@ -38,13 +38,24 @@ func main() {
 	//}
 //	fmt.Println(res)
 
-	data := []byte{}
-	if err := process(data); err != nil {
-		fmt.Println("error", err)
-		return
-	}
-	fmt.Println(data)
+//	data := []byte{}
+//	if err := process(data); err != nil {
+//		fmt.Println("error", err)
+//		return
+//	}
+//	fmt.Println(data)
+
+	//if err1 := eprocess(); err1 != nil {
+	//	fmt.Println("error", err1)
+	//	return
+	//}
+ if err3 :=readData();err3!=nil{
+	fmt.Println(err3)
+	return
+ }
+ fmt.Println("read data successfully")
 }
+
 
 func genercs[T any](a, b T) (T, T) {
 	return a, b
@@ -108,3 +119,27 @@ func process(data []byte) error {
 	}
 	return nil
 }
+
+//custom error
+
+type myError struct{
+	message string
+} 
+
+func(m *myError) Error()string{
+	return fmt.Sprintf("error :%s",m.message)
+}
+
+func eprocess ()error{
+	return &myError{"custom error message"}
+}
+
+func readData()error{
+	if err :=readconfig(); err !=nil{
+		return fmt.Errorf("readData %w",err)
+	}
+	return nil
+}
+ func readconfig()error{
+	return errors.New("config error")
+ }
