@@ -1,49 +1,68 @@
-package main
+//string function in go
+package main 
 
-import (
-	"errors"
-	"fmt"
-)
+import ("fmt"
+       "strings"
+	    "strconv")
 
-func main() {
-	if err := doSomething(); err != nil {
-		fmt.Println(err)
-		return
-	}
-}
+func main(){
+  str := "Golang"
+fmt.Println(str[0:4]) // "Gola"
 
-type customError struct {
-	code    int32
-	message string
-	err     error
-}
 
-// error returns the error message
-// implementing error interface
-func (m *customError) Error() string {
-	return fmt.Sprintf("Error %d: %s %v \n", m.code, m.message, m.err)
-}
 
-//function that return cistomError
 
-//func doSomething()error{
-//return &customError{
-//	code :500,
-//	message: "Something went wrong",
-//}
-//}
+fmt.Println(strings.Contains("golang", "go"))   // true
+fmt.Println(strings.HasPrefix("golang", "go"))  // true
+fmt.Println(strings.HasSuffix("golang", "ang")) // true
 
-func doSomething() error {
-	if err := doSomethingElse(); err != nil {
-		return &customError{
-			code:    500,
-			message: "Something went wrong",
-			err:     err,
-		}
-	}
-	return nil
-}
 
-func doSomethingElse() error {
-	return errors.New("Internal Error")
+fmt.Println(strings.Index("golang", "lan"))   // 2
+fmt.Println(strings.Count("golang", "g"))     // 2
+
+
+
+
+fmt.Println(strings.Contains("golang", "go"))   // true
+fmt.Println(strings.HasPrefix("golang", "go"))  // true
+fmt.Println(strings.HasSuffix("golang", "ang")) // true
+
+
+fmt.Println(strings.Index("golang", "lan"))   // 2
+fmt.Println(strings.Count("golang", "g"))     // 2
+
+
+str1 := "a,b,c"
+parts := strings.Split(str1, ",")
+fmt.Println(parts) // [a b c]
+
+joined := strings.Join(parts, "-")
+fmt.Println(joined) // a-b-c
+
+
+str2 := "I love Java"
+newStr := strings.Replace(str2, "Java", "Go", 1)
+fmt.Println(newStr) // I love Go
+
+
+
+fmt.Println(strings.ToUpper("golang")) // GOLANG
+fmt.Println(strings.ToLower("GOLANG")) // golang
+
+
+fmt.Println(strings.TrimSpace("   abhi   ")) // "abhi"
+fmt.Println(strings.Trim("!!!hello!!!", "!")) // "hello"
+
+
+
+
+// String → Int
+i, _ := strconv.Atoi("123")
+fmt.Println(i) // 123
+
+// Int → String
+s := strconv.Itoa(456)
+fmt.Println(s) // "456"
+
+
 }
