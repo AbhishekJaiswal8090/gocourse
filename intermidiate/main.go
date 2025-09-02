@@ -2,45 +2,41 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
+	"strconv"
 )
 
 func main(){
-	
-for {
-	fmt.Println("welcome to the dice game")
-	fmt.Println("1. roll the dice")
-	fmt.Println("2. Exit")
-	fmt.Println("Enter your choice")
-    
-	var choice int
-	_,err :=fmt.Scan(&choice)
-
-	if err !=nil ||(choice != 1 && choice !=2){
-		continue
+	numstr :="12345"
+	num ,err :=strconv.Atoi(numstr)
+	if err != nil{
+		fmt.Println(err)
 	}
-	if choice == 2{
-		fmt.Println("quitting the game ")
-		break
+	fmt.Println("parsed integer",num +1)
+
+	num1 ,err :=strconv.ParseInt(numstr ,10,32)
+	if err!= nil{
+		fmt.Println(err)
 	}
-	die1 :=rand.Intn(6) +1
-	die2 :=rand.Intn(6)+1
+	fmt.Println(num1)
 
-	fmt.Printf("you rolled a %d and a %d \n",die1,die2)
-	fmt.Println("Total is ",die1+die2)
-
-	fmt.Println("do you want to roll again (y/n)")
-
-	var rollAgain string
-	_ ,err =fmt.Scan(&rollAgain)
-	if err !=nil || (rollAgain !="y" && rollAgain !="n"){
-       fmt.Println("Invalid input ,assuming no.")
-	   break
+	floatstr :="34.78"
+	floatnum ,err :=strconv.ParseFloat(floatstr,64)
+	if err!= nil{
+		fmt.Println(err)
 	}
-	if rollAgain =="n"{
-		fmt.Println("thanks for playing good bye")
-		break
-	}
+	fmt.Println(floatnum)
 
-}
+	binarystr :="1010"
+	decimal ,err :=strconv.ParseInt(binarystr,2,64)
+	if err!=nil{
+		fmt.Println(err)
+	}
+	fmt.Println("parsed binary to decimal val",decimal)
+
+	hexstr :="ff"
+	decnum ,err:=strconv.ParseInt(hexstr,16,64)
+	if err!=nil{
+		fmt.Println(err)
+	}
+	fmt.Println(decnum)
 }
