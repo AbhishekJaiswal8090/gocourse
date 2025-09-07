@@ -9,8 +9,8 @@ import (
 
 
 func bufIo(){
-
-// 	  reader :=bufio.NewReader(strings.NewReader("hello ? bufio package fvk u\n"))
+//    strreader :=strings.NewReader("hello ? bufio package fvk u\n")
+// 	  reader :=bufio.NewReader(strreader)
 //   data := make([]byte,40)
   
 //   n,err:=  reader.Read(data)
