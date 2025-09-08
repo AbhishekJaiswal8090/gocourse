@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func main(){
+func LineFilter(){
 
 	fmt.Println("Line Filtering")
     file,err :=os.Open("example.txt")
