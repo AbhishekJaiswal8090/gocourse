@@ -4,48 +4,48 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
-func main() {
+func main(){
 
-	file, err := os.Open("Output.txt")
-	if err != nil {
+	fmt.Println("Line Filtering")
+    file,err :=os.Open("example.txt")
+	if err!=nil{
+		fmt.Println("Error : opening file")
+		return
+	}
+	defer file.Close()
+
+	scanner :=bufio.NewScanner(file)
+	
+	// keyword to filter line
+	keyword:="important"
+
+	//read and filter line
+	lineNumber := 0
+
+	for scanner.Scan(){
+		line:=scanner.Text()
+		if strings.Contains(line ,keyword) {
+ 
+			// replacing that particular word from that line to some else word
+			udpatedLine:=strings.ReplaceAll(line,keyword,"necessary")
+ 
+			//filter the line
+			  fmt.Printf("%d filtered line %v\n",lineNumber,line)
+			  lineNumber++
+			  fmt.Printf("%d updated line: %v\n",lineNumber, udpatedLine)
+
+			 lineNumber++
+		}
+	}
+	err =scanner.Err()
+	if err!=nil{
 		fmt.Println(err)
 		return
 	}
-	defer func() {
-		fmt.Println("closing open file")
-		defer file.Close()
 
-	}()
 
-	fmt.Println("file opened successfully")
-	// /// reading content of the file
-	// data := make([]byte, 1024)
-	// _, err = file.Read(data)
 
-	// if err != nil {
-	// 	fmt.Println("error reading file", err)
-	// 	return
-	// }
-
-	// fmt.Println("file content", string(data))
-   
-	scanner :=bufio.NewScanner(file)
-
-	//read file line by line
-	for scanner.Scan(){
-		line :=scanner.Text()
-		fmt.Println(line)
-	}
-
-	err =scanner.Err()
-	if err!=nil{
-		fmt.Println("Error reading file",err)
-		return 
-	}
-	
-
-    
-	
 }
