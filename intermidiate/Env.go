@@ -10,7 +10,7 @@ import (
 //so to avoid changing everywhere there value 
 //we declare it at a single place accese it via theri key
 
-func main(){
+func Env(){
     user :=os.Getenv("USER")
 	home :=os.Getenv("HOME")
 
