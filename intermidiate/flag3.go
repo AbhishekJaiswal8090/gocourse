@@ -7,7 +7,7 @@ import (
 )
 
 
-func main(){
+func flag3(){
 	subcommand1 :=flag.NewFlagSet("firstSub",flag.ExitOnError)
 	subcommand2:=flag.NewFlagSet("secondSUb",flag.ExitOnError)
 
