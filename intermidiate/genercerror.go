@@ -16,7 +16,7 @@ func genercError() {
 		b,a := swap("abhi","akash")
 		fmt.Println(b,a)
 
-		//implementing stack
+		// implementing stack
 		s := Stack[int]{
 			elements: []int{},
 		}
