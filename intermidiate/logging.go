@@ -1,5 +1,4 @@
 package main
-
 import (
 	"log"
 	"os"
@@ -22,7 +21,7 @@ func logging(){
 	warnLogger.Println("This is an warning message")
 	errorLogger.Println("This is an error messaege")
     
-	file,err :=os.OpenFile("logger.txt",os.O_CREATE|os.O_WRONLY|os.O_APPEND,0666)
+	file,err :=os.OpenFile("logger.log",os.O_CREATE|os.O_WRONLY|os.O_APPEND,0666)
 	if err !=nil{
 		log.Fatalf("Failed to opened a file")
 	}
