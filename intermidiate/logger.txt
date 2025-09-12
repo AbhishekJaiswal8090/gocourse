@@ -1,0 +1,2 @@
+DEBUG2025/09/12 C:/Users/Abhishek/OneDrive/Desktop/gocourse/intermidiate/logging.go:33: This is a debug message
+DEBUG2025/09/12 C:/Users/Abhishek/OneDrive/Desktop/gocourse/intermidiate/logging.go:41: This is a debug message
