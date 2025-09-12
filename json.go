@@ -1,9 +1,10 @@
 package main
 
-import(
-	 "encoding/json"
-        "fmt"
-	)
+import (
+	"encoding/json"
+	"fmt"
+	"log"
+)
 
 
 func main() {
@@ -55,7 +56,45 @@ func main() {
 	}
 	fmt.Println(Emp.Fullname,Emp.City,Emp.State)
 
+//encoding list into json
+	listOfcityState :=[]Address{
+		{
+			City: "newyork",
+			State: "London",
+		},
+		{
+			City: "Wahington",
+			State: "USA",
+		},
+		{
+			City: "Delhi",
+			State: "India",
+		},
+	}
 
+	fmt.Println(listOfcityState)
+	data2,err:=json.Marshal(listOfcityState)
+	if err!=nil{
+		fmt.Println("Error :Encoding listofCityState",err)
+		return
+	}
+	fmt.Println("Json list: ",string(data2))
+
+
+	//handling unknown json structure
+
+	jsonData2:=`{"name":"John","age":20,"addres":"NewYork","state":"NY"}`
+     
+   var data3 map[string]interface{}
+   err=json.Unmarshal([]byte(jsonData2),&data3)
+   if err!=nil{
+	log.Fatal("Error :unmarshalling the data")
+	return
+   }
+
+   fmt.Println("Decode data: ",data3)
+    fmt.Println("Decode Value of name: ",data3["name"])
+	
 }
 
 type Person struct {
