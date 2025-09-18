@@ -6,10 +6,9 @@ import (
 	"os"
 )
 
-
 func flag3(){
 	subcommand1 :=flag.NewFlagSet("firstSub",flag.ExitOnError)
-	subcommand2:=flag.NewFlagSet("secondSUb",flag.ExitOnError)
+	subcommand2:=flag.NewFlagSet("secondSub",flag.ExitOnError)
 
 	firstflag :=subcommand1.Bool("processing",false,"command processing status")
 	secondflag :=subcommand1.Int("bytes",1024,"byte length of result")
