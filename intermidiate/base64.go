@@ -7,20 +7,25 @@ import (
 	"fmt"
 )
  func base64Encoding(){
-data :=[]byte("He~lo , base64 coding") 
-//encode base64
+	//encoding  and decoding data using base64
 
-encoded :=base64.StdEncoding.EncodeToString(data)
-fmt.Println(encoded)
+	//encoding
+	data :=[]byte("Here is the data")
+    encodedData:=base64.StdEncoding.EncodeToString(data)
 
-//decode frome base64
-decoded,err :=base64.StdEncoding.DecodeString(encoded)
-if err !=nil{
-	fmt.Println(err)
-}
-fmt.Println(string(decoded))
-fmt.Println(len(decoded),len(data))
+	fmt.Println(encodedData)
 
+	//decoding
+	data2 :=[]byte("123 IS THE DATA THAT WE WANT TO ENCODE AND THEN DECODE")
+	encodedData2:=base64.StdEncoding.EncodeToString(data2)
+
+	decodeData2,err:=base64.StdEncoding.DecodeString(encodedData2)
+	if err!=nil{
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(string(decodeData2))
+    fmt.Println(len(decodeData2))
 //URL safe ,avoid '/' and '+'
 
  }
