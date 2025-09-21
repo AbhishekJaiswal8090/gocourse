@@ -7,6 +7,21 @@ import (
 )
 
 
+type Person struct {
+	First_Name string `json:"first_name"`
+	Age        int    `json:"age, omitempty"`//omitempty removes the spaces
+	Email string      `json:"email"`
+	Address Address   `json :"address"`
+}
+type Address struct{
+	City string `json:"city"`
+	State string `json: "state"`
+}
+
+
+
+
+
 func main() {
 	address:=Address{
 		City : "Kushinagar",
@@ -97,13 +112,3 @@ func main() {
 	
 }
 
-type Person struct {
-	First_Name string `json:"first_name"`
-	Age        int    `json:"age, omitempty"`//omitempty removes the spaces
-	Email string      `json:"email"`
-	Address Address   `json :"address"`
-}
-type Address struct{
-	City string `json:"city"`
-	State string `json: "state"`
-}
