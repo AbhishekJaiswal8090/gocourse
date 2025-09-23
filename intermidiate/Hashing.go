@@ -42,6 +42,7 @@ func generateSalt()([]byte ,error){
 		fmt.Println(err)
 		return nil,err
 	}
+	fmt.Println(salt)
 	return salt ,nil
 }
 
