@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 )
 
@@ -72,20 +73,21 @@ func writeTofile(filepath string,data string){
 	}
 	defer closeResource(file)
 
-	// _,err=file.Write([]byte(data))
-	// if err!=nil{
-	// 	log.Fatal("Error :Writting data")
-	// }
+	_,err=file.Write([]byte(data))
+	if err!=nil{
+		log.Fatal("Error :Writting data")
+	}
 
 	// a=32
 	// b=float32(a)
 
-	writter :=io.Writer(file)
-     _,err=	writter.Write([]byte(data))
-     if err!=nil{
-	    log.Fatal(err)
-     }
+	// writter :=io.Writer(file)
+    //  _,err=	writter.Write([]byte(data))
+    //  if err!=nil{
+	//     log.Fatal(err)
+    //  }
 
+	 
 	
 	 
 
@@ -133,6 +135,7 @@ func main() {
 	fmt.Println("==PipeExample==")
 	pipeExample()
 
-	
+	file_path :="io.txt"
 
+	writeTofile(file_path,"Hello file")
 }
