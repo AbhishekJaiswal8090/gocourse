@@ -52,9 +52,45 @@ func multiReaderExample(){
 }
 
 func pipeExample(){
-	
+	pr,pw:=io.Pipe()
+
+	go func(){
+		pw.Write([]byte("Hello Pipe"))
+		pw.Close()
+	}()
+	buf :=new(bytes.Buffer)
+	buf.ReadFrom(pr)
+	fmt.Println(buf.String())
 }
 
+
+func writeTofile(filepath string,data string){
+	file,err:=os.OpenFile(filepath,os.O_APPEND|os.O_WRONLY|os.O_CREATE,0644)
+	if err!=nil{
+	 log.Fatal("Error :Opening file")
+
+	}
+	defer closeResource(file)
+
+	// _,err=file.Write([]byte(data))
+	// if err!=nil{
+	// 	log.Fatal("Error :Writting data")
+	// }
+
+	// a=32
+	// b=float32(a)
+
+	writter :=io.Writer(file)
+     _,err=	writter.Write([]byte(data))
+     if err!=nil{
+	    log.Fatal(err)
+     }
+
+	
+	 
+
+
+}
 
 func main() {
 
@@ -93,6 +129,10 @@ func main() {
 	fmt.Println("===MultiReader Example===")
 	multiReaderExample()
 
+ 
+	fmt.Println("==PipeExample==")
+	pipeExample()
 
+	
 
 }
