@@ -44,3 +44,10 @@ func PrintString(){
 		time.Sleep(200*time.Millisecond)
 	}
 }
+
+
+func dowork()error{
+	time.Sleep(5*time.Millisecond)
+	return fmt.Errorf("Error :this is error ,message")
+	
+}
