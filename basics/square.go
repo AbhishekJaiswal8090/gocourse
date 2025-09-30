@@ -1,9 +1,13 @@
-package main
+package 
 
 import (
 	"fmt"
 	"time"
  )
+
+
+
+ 
 
 //  func Worker(id int , jobs <-chan int ,results chan int){
 // 	for j:= range jobs{
@@ -35,11 +39,11 @@ import (
 
 // 	close(jobs)
 
-	//collect results 
-	for i:=0; i<len(tasks); i++{
-		fmt.Println("Result ",<-results)
-	}
- }
+// 	//collect results 
+// 	for i:=0; i<len(tasks); i++{
+// 		fmt.Println("Result ",<-results)
+// 	}
+//  }
 
 
 

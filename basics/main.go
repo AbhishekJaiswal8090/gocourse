@@ -224,7 +224,7 @@ func deferFunc(){
       x = 0
 	  fmt.Println(x)
 }
-func main(){
+func //main(){
 	//firstPart()
    // secondPart()
    // thirdPart()
