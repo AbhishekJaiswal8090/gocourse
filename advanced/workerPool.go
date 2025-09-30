@@ -21,7 +21,7 @@ func ticketProcessor(request <-chan ticketRequest, results chan<- int) {
 	}
 
 }
-func main() {
+func workerPool() {
 	numRequest := 5
 	price := 5
 	ticketRequests := make(chan ticketRequest, numRequest)
