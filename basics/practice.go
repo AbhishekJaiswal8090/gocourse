@@ -67,6 +67,7 @@ func CreateAccount() {
 	switch typeOfAccount {
 	case "1":
 		id, detail := createSavingAccount()
+		fmt.Println(detail)
 		fmt.Printf("\nYour Saving Account has been created your account no. is: %d ,heres the detail %s \n", id, detail)
 	case "2":
 		id, detail := CreateMerchantAccount()
@@ -77,7 +78,7 @@ func CreateAccount() {
 
 }
 
-func createSavingAccount() (interface{}, interface{}) {
+func createSavingAccount() (interface{}, string) {
 	var name string
 	var address string
 	var phone string
@@ -93,6 +94,9 @@ func createSavingAccount() (interface{}, interface{}) {
 	rand.Seed(time.Now().UnixNano()) // Seed with current time
 	user_id := rand.Intn(1000000)
 
+	total_id := make(map[int]string)
+	total_id[user_id] = name
+	fmt.Println("User account has been created\n")
 	userAddress := Address{
 		city:  address,
 		phone: phone,
@@ -103,10 +107,12 @@ func createSavingAccount() (interface{}, interface{}) {
 		address:       userAddress,
 		total_balance: 0,
 	}
-	fmt.Println("User account has been created\n")
-	jsonData, _ := json.MarshalIndent(userDetail, "", "  ")
-
-	return userDetail.id, jsonData
+	
+	detailBytes, err := json.Marshal(userDetail)
+	if err != nil {
+		return userDetail.id, "Error serializing user details"
+	}
+	return userDetail.id, string(detailBytes)
 }
 
 func (b *PersonDomestic) Deposit(amount int) (interface{}, interface{}) {
