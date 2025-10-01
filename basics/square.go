@@ -6,9 +6,6 @@ import (
  )
 
 
-
- 
-
 //  func Worker(id int , jobs <-chan int ,results chan int){
 // 	for j:= range jobs{
 // 		fmt.Printf("Worker %d started job %d\n",id,j)
@@ -17,6 +14,8 @@ import (
 // 		results  <- j * j
 // 		fmt.Printf("worker %d finished job %d \n",id,j)
 // 	}
+
+
 
 
 //  }
