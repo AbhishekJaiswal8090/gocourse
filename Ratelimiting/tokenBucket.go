@@ -4,6 +4,7 @@ import (
 	"time"
 	"fmt"
 )
+// token bucket algom
 
 type RateLimiter struct {
 	tokens     chan struct{}
@@ -44,7 +45,7 @@ func (rl *RateLimiter) allow() bool {
 
 
 
-func main() {
+func tokenBucketAlgom() {
 
 	rateLimiter :=NewRateLimiter(5 ,time.Second)
 	for range 10{
