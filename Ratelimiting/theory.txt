@@ -1,0 +1,38 @@
+Rate limiting is basically a control mechanism used in computrs
+systems , APIs, Servers or networks to restrict the number of requests or operations
+a user , client or process can perform within a certain period of time
+
+Key Points About Rate Limiting:
+
+Definition:
+It limits how often someone can perform an action (e.g., sending API requests, login attempts, messages) in a given time window.
+
+Purpose:
+
+Prevents abuse (like brute force login attempts).
+
+Protects servers from being overloaded (DoS attacks).
+
+Ensures fair usage among all users.
+
+Helps in cost control (since many services charge per request).
+
+
+Examples:
+
+An API might allow only 100 requests per minute per user.
+
+A login system might allow only 5 attempts in 15 minutes.
+
+A messaging app might restrict sending 1 message per second.
+
+
+Common Techniques:
+
+Token Bucket Algorithm – Tokens are generated at a fixed rate; a request consumes a token. If no tokens, request is denied.
+
+Leaky Bucket Algorithm – Requests flow into a "bucket" and are processed at a steady rate, preventing bursts.
+
+Fixed Window Counter – Limits requests in fixed time windows (e.g., 100 requests per minute).
+
+Sliding Window Log / Sliding Window Counter – More precise; calculates requests in a moving time window.
