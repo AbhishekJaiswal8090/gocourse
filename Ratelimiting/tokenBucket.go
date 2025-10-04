@@ -1,47 +1,47 @@
-package main
+// package main
 
-import (
-	"time"
-	"fmt"
-)
-// token bucket algom
+// import (
+// 	"time"
+// 	"fmt"
+// )
+// // token bucket algom
 
-type RateLimiter struct {
-	tokens     chan struct{}
-	refillTime time.Duration
-}
+// type RateLimiter struct {
+// 	tokens     chan struct{}
+// 	refillTime time.Duration
+// }
 
-func NewRateLimiter(ratelimit int, refillTime time.Duration) *RateLimiter {
-	rl := &RateLimiter{
-		tokens:     make(chan struct{}, ratelimit),
-		refillTime: refillTime,
-	}
-	for i := 0; i < ratelimit; i++ {
-		rl.tokens <- struct{}{}
-	}
-	go rl.startRefill()
-	return rl
-}
+// func NewRateLimiter(ratelimit int, refillTime time.Duration) *RateLimiter {
+// 	rl := &RateLimiter{
+// 		tokens:     make(chan struct{}, ratelimit),
+// 		refillTime: refillTime,
+// 	}
+// 	for i := 0; i < ratelimit; i++ {
+// 		rl.tokens <- struct{}{}
+// 	}
+// 	go rl.startRefill()
+// 	return rl
+// }
 
-func (rl *RateLimiter) startRefill() {
-	ticker := time.NewTicker(rl.refillTime)
-	defer ticker.Stop()
-	for range ticker.C {
-		select {
-		case rl.tokens <- struct{}{}:
-		default:
-		}
-	}
-}
+// func (rl *RateLimiter) startRefill() {
+// 	ticker := time.NewTicker(rl.refillTime)
+// 	defer ticker.Stop()
+// 	for range ticker.C {
+// 		select {
+// 		case rl.tokens <- struct{}{}:
+// 		default:
+// 		}
+// 	}
+// }
 
-func (rl *RateLimiter) allow() bool {
-	select {
-	case <-rl.tokens:
-		return true
-	default:
-		return false
-	}
-}
+// func (rl *RateLimiter) allow() bool {
+// 	select {
+// 	case <-rl.tokens:
+// 		return true
+// 	default:
+// 		return false
+// 	}
+// }
 
 
 
