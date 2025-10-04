@@ -18,5 +18,4 @@ func main() {
 		log.Fatal("Error starting server", err)
 		return
 	}
-
 }
