@@ -122,6 +122,7 @@ func mapPart(){
 	//deleting one student
 	delete(map1,"pawan")
 	fmt.Println(map1)
+	map1.
 }
 
 func countWordFrequency(word string){
